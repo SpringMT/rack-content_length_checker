@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["SpringMT"]
   spec.email         = ["today.is.sky.blue.sky@gmail.com"]
 
-  spec.summary       = %q{Check Content Length size and logging.}
-  spec.description   = %q{Check Content Length size and logging.}
+  spec.summary       = %q{Monitoring and logging Content-Length.}
+  spec.description   = %q{Monitoring and logging Content-Length.}
   spec.homepage      = "https://github.com/SpringMT/rack-content_length_checker"
   spec.license       = "MIT"
 
