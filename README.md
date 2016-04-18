@@ -40,7 +40,7 @@ use Rack::ContentLengthChecker,
 #### エラーを返す場合
 * エラーを返す場合は、`is_error`のオプションを使って下さい
   * 下記例では、Content-Lengthが1.5MB〜2.0 MBの時にlog level warnでログをだし、2.0MB以上の場合log level fatalでログを出し、エラーを返します。
-  * エラーを帰す場合は、HTTP Statusは`413`となります。
+  * エラーの場合は、HTTP Statusは`413`となります。
 
 ```
 use Rack::ContentLengthChecker,
