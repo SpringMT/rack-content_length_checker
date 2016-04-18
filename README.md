@@ -1,8 +1,9 @@
 # Rack::ContentLengthChecker [![Build Status](https://travis-ci.org/SpringMT/rack-content_length_checker.svg?branch=master)](https://travis-ci.org/SpringMT/rack-content_length_checker)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rack/content_length_checker`. To experiment with that code, run `bin/console` for an interactive prompt.
+### English
 
-TODO: Delete this and the text above, and describe your gem
+### Japanese
+* リクエストのサイズ(Content-Length)を監視、ロギングを行うrackミドルウェアです。
 
 ## Installation
 
@@ -21,8 +22,32 @@ Or install it yourself as:
     $ gem install rack-content_length_checker
 
 ## Usage
+### English
 
-TODO: Write usage instructions here
+### Japanese
+#### warn、fatalの設定
+* Content-Lengthが1.5MB〜2.0 MBの時にlog level warnでログをだし、2.0MB以上の場合log level fatalでログを出す場合の設定
+  * rubyのLoggerを使う
+  * この設定では、ログを吐くだけ
+
+```
+use Rack::ContentLengthChecker,
+  warn: {length: 1_500_000}, # 1.5MB
+  fatal: {length: 2_000_000}, # 2.0 MB
+  logger: Logger.new(STDOUT)
+```
+
+#### エラーを返す場合
+* エラーを返す場合は、`is_error`のオプションを使って下さい
+  * 下記例では、Content-Lengthが1.5MB〜2.0 MBの時にlog level warnでログをだし、2.0MB以上の場合log level fatalでログを出し、エラーを返します。
+  * エラーを帰す場合は、HTTP Statusは`413`となります。
+
+```
+use Rack::ContentLengthChecker,
+  warn: {length: 1_500_000}, # 1.5MB
+  fatal: {length: 2_000_000, is_error: true}, # 2.0 MB
+  logger: Logger.new(STDOUT)
+```
 
 ## Development
 
