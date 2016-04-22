@@ -1,5 +1,4 @@
 require 'logger'
-require 'pry'
 
 module Rack
   class ContentLengthChecker
